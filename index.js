@@ -22,7 +22,7 @@ async function setItem(arr,id){
 	}
 	var file=arr[id];
 	if(file.endsWith('.csv')){
-				var results = [];
+				var results = []; 
 				console.log('\nscanning "'+file+'"');
 				
 				await fs.createReadStream(__dirname+'/'+foldername+'/'+file)
