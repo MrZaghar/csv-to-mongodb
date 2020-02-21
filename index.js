@@ -7,6 +7,9 @@ const cliProgress = require('cli-progress');
 var db = monk('mongodb://localhost:27017/phonesdata');
 var tablename=Math.random().toString(36).replace(/[^a-z]+/g, '').substr(0, 8);
 var foldername="datafiles";
+if (!fs.existsSync(__dirname+'/'+foldername)){
+    fs.mkdirSync(__dirname+'/'+foldername);
+}
 try{
 	db.collection(tablename).drop();
 	db.collection(tablename).createIndex({ tel: 1 }, { unique: true });
